@@ -50,3 +50,16 @@ export const collectionDataFetch = (modelName: string, page_size: number = 10, p
       console.log(resp)
   });
 }
+
+export const getGlobalContent = (modelName: string) => {
+  return butter.page.list(modelName, {
+    "fields.hospitals.hospital_name": process.env.NEXT_PUBLIC_BUTTER_HOSPITAL,
+    levels: 2
+  } as any)
+  .then((resp) => {
+    return resp?.data?.data
+  })
+  .catch((err) => {
+    console.error('error: ', err)
+  })
+}
