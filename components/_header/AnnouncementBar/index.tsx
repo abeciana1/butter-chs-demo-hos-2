@@ -23,7 +23,7 @@ type AnnouncementResponse = Announcement | Announcement[] | null;
 
 
 const AnnouncementDataFetch = () => {
-    let announcements = use(getGlobalContent('announcement_bar_comp')) as AnnouncementResponse;
+    const announcements = use(getGlobalContent('announcement_bar_comp')) as AnnouncementResponse;
 
     if (!announcements) return null;
 
